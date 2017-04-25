@@ -2764,6 +2764,8 @@ reuse:
 		/* file_update_time outside page_lock */
 		if (vma->vm_file)
 			file_update_time(vma->vm_file);
+		if (vma->vm_prfile)
+			file_update_time(vma->vm_prfile);
 
 		return ret;
 	}
@@ -3482,6 +3484,8 @@ out:
 		/* file_update_time outside page_lock */
 		if (vma->vm_file)
 			file_update_time(vma->vm_file);
+		if (vma->vm_prfile)
+			file_update_time(vma->vm_prfile);
 	} else {
 		unlock_page(vmf.page);
 		if (anon)
